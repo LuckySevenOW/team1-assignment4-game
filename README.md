@@ -20,8 +20,8 @@ Tasks:
 
 Roles & Tasks:
 
-Jake: Art 
-Daniel (Scyth3Lucif3r): Doing... something? 
-Nick: 
-Zoe: 
-Nate:
+Jake: Background and Character Art & Implementation
+Daniel (Scyth3Lucif3r): Collision
+Nick: Player and Obstacle Movement
+Zoe: UI and UI Implementation
+Nate: Scoring & Game Over Screen
