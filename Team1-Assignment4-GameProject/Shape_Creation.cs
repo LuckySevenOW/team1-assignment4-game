@@ -25,6 +25,7 @@ namespace Team1_Assignment4_GameProject
 
         public void platforms(float rectangleLocationX, float rectangleLocationY, float rectangleSizeX, float rectangleSizeY)
         {
+            Draw.FillColor = Color.Green;
             Draw.Rectangle(rectangleLocationX, rectangleLocationY, rectangleSizeX, rectangleSizeY);
         }
 
