@@ -57,10 +57,12 @@ namespace Game10003
             shape_Creation.barrel();
             shape_Creation.player();
 
-            shape_Creation.barrelMovement();
-
             collision.barrelCollision();
             collision.playerBarrelCollision();
+
+            shape_Creation.barrelMovement();
+
+            
         }
     }
 }

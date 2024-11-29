@@ -42,11 +42,11 @@ namespace Team1_Assignment4_GameProject
 
             bool doesOverlapTop = shape_Creation.platformTopEdge == barrelLocation.Y + barrelRadius;
 
-            if (doesOverlapTop == true && platformX <= barrelLocation.X + barrelRadius && platformX + platformSizeX >= barrelLocation.X - barrelRadius)
+            if (doesOverlapTop == true && platformX <= barrelLocation.X - barrelRadius && platformX + platformSizeX >= barrelLocation.X + barrelRadius)
             {
                 barrelDirectionY = 0;
                 barrelDirectionX = 3;
-                barrelLocation = barrelLastPosition;
+                barrelLocation.Y = barrelLastPosition.Y;
                 Console.WriteLine("WEEWOOWEEWOO");
             }
             else
