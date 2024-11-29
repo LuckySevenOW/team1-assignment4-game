@@ -18,5 +18,7 @@ namespace Team1_Assignment4_GameProject
         public Vector2 barrelLastPosition;
         public float barrelDirectionX = 3;
         public float barrelDirectionY = -3;
+
+
     }
 }

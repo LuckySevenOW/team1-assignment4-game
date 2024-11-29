@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game10003;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -21,5 +22,28 @@ namespace Team1_Assignment4_GameProject
         public float playerBottomEdge;
 
         public float platformTopEdge;
+
+        public void platforms(float rectangleLocationX, float rectangleLocationY, float rectangleSizeX, float rectangleSizeY)
+        {
+            Draw.Rectangle(rectangleLocationX, rectangleLocationY, rectangleSizeX, rectangleSizeY);
+        }
+
+        public void barrel()
+        {
+            Draw.FillColor = Color.Red;
+            Draw.Circle(collision.barrelLocation.X, collision.barrelLocation.Y, collision.barrelSize);
+        }
+
+        public void barrelMovement()
+        {
+            collision.barrelLocation.X += collision.barrelDirectionX;
+            collision.barrelLocation.Y += collision.barrelDirectionY;
+        }
+
+        public void player()
+        {
+            Draw.FillColor = Color.Blue;
+            Draw.Rectangle(playerPosition.X, playerPosition.Y, playerSize.X, playerSize.Y);
+        }
     }
 }
