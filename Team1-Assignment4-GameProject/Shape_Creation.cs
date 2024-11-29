@@ -31,7 +31,7 @@ namespace Team1_Assignment4_GameProject
         public void barrel()
         {
             Draw.FillColor = Color.Red;
-            Draw.Circle(collision.barrelLocation.X, collision.barrelLocation.Y, collision.barrelSize);
+            Draw.Circle(collision.barrelLocation.X, collision.barrelLocation.Y, collision.barrelRadius);
         }
 
         public void barrelMovement()
