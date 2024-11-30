@@ -21,7 +21,7 @@ Tasks:
 Roles & Tasks:
 
     Jake: Background and Character Art & Implementation
-    Daniel (Scyth3Lucif3r): Collision
+    Daniel (Scyth3Lucif3r): Platform, Ball, & Player Collision
     Nick: Player and Obstacle Movement
     Zoe: UI and UI Implementation
-    Nate: Scoring & Game Over Screen
+    Nate: Scoring, Game Over Screen, & Ladder Collision
