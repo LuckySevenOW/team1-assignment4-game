@@ -12,7 +12,7 @@ namespace Team1_Assignment4_GameProject
     {
         public Collision collision;
 
-        public Vector2 playerPosition = new Vector2(250, 600);
+        public Vector2 playerPosition = new Vector2(80, 600);
         public Vector2 playerSize = new Vector2(60, 25);
         public Vector2 playerLastPosition;
 
