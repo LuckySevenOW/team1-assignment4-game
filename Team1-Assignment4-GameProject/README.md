@@ -24,4 +24,4 @@ Jake: Art
 Daniel (Scyth3Lucif3r): Doing... something?
 Nick: 
 Zoe: 
-Nate: 
+Nate: Score, Timer, Ladder Collision
