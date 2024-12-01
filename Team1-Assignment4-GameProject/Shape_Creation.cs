@@ -12,8 +12,8 @@ namespace Team1_Assignment4_GameProject
     {
         public Collision collision;
 
-        public Vector2 playerPosition = new Vector2(250, 600);
-        public Vector2 playerSize = new Vector2(60, 25);
+        public Vector2 playerPosition = new Vector2(300, 900);
+        public Vector2 playerSize = new Vector2(25, 50);
         public Vector2 playerLastPosition;
 
         public float playerLeftEdge;
@@ -37,8 +37,20 @@ namespace Team1_Assignment4_GameProject
 
         public void barrelMovement()
         {
-            collision.barrelLocation.X += collision.barrelDirectionX;
-            collision.barrelLocation.Y += collision.barrelDirectionY;
+            if (collision.altBarrelDirection == true)
+            {
+                collision.barrelLocation.X += 3;
+                collision.barrelLocation.Y += 0;
+                //Console.WriteLine("BEANS");
+            } 
+            else if (collision.altBarrelDirection == false)
+            {
+                collision.barrelLocation.X += 0;
+                collision.barrelLocation.Y += 3;
+                //collision.barrelLocation.X += collision.barrelDirectionX;
+                //collision.barrelLocation.Y += collision.barrelDirectionY;
+            }
+
         }
 
         public void player()
