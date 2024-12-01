@@ -49,7 +49,6 @@ namespace Game10003
 
         //Jake's Variables
         GameGraphics gameGraphics = new GameGraphics();
-        public GameGraphics daGraphics;
 
         /// :::::::::: DANIEL'S VARIABLES ::::::::::
         Shape_Creation shape_Creation = new Shape_Creation();
@@ -74,7 +73,7 @@ namespace Game10003
             Window.ClearBackground(Color.OffWhite);
 
             //Added by Jake
-            daGraphics.DrawBackground();
+            gameGraphics.DrawBackground();
 
             /// The objects are drawn to the canvas
             DrawPlatform1(Plat1Pos, Plat1Scale);
@@ -243,7 +242,7 @@ namespace Game10003
             /// Just collision, really. In fact, all of these public voids should be made clear for the final project.
             Draw.FillColor = Color.Black;
             Draw.Rectangle(PlayerPos.X, PlayerPos.Y, 18, 40);
-            Graphics.Draw(daGraphics.texturePlayerRunRight, PlayerPos.X, PlayerPos.Y);
+            gameGraphics.DrawPlayerSprite(PlayerPos);
         }
        
         public void DrawGround(float Scale)

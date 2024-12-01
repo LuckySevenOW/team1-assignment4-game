@@ -12,6 +12,8 @@ namespace Team1_Assignment4_GameProject
     {
         public Collision collision;
 
+        public GameGraphics gamegraphics = new GameGraphics();
+
         public Vector2 playerPosition = new Vector2(80, 600);
         public Vector2 playerSize = new Vector2(60, 25);
         public Vector2 playerLastPosition;
@@ -33,6 +35,7 @@ namespace Team1_Assignment4_GameProject
         {
             Draw.FillColor = Color.Red;
             Draw.Circle(collision.barrelLocation.X, collision.barrelLocation.Y, collision.barrelRadius);
+            gamegraphics.DrawBarrel(collision.barrelLocation);
         }
 
         public void barrelMovement()
