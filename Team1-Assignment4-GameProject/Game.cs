@@ -24,6 +24,7 @@ namespace Game10003
         bool DownPressed;
         bool RightPressed;
         bool IsStanding = false;
+      
         // Location Bools
         bool Plat1Passed = false;
         bool AtLadder1Bottom;
@@ -32,17 +33,20 @@ namespace Game10003
         bool LadderState = false;
         bool CollidingWithLadder1 = false;
         bool CollidingWithPlat1 = false;
+       
         // Collision and shit
         Vector2 Ladder1Pos = new Vector2(240, 600);
         Vector2 Ladder1Scale = new Vector2(30, 100);
         Vector2 Plat1Pos = new Vector2(270, 600);
         Vector2 Plat1Scale = new Vector2(200, 20);
+       
         // Score Variables
         float GameScore = 0;
         float TotalFrames = 0;
         float GameTime = 0;
         Score score;
         bool BarrelAvoided = false;
+       
         /// :::::::::: DANIEL'S VARIABLES ::::::::::
         Shape_Creation shape_Creation = new Shape_Creation();
         Collision collision = new Collision();
@@ -83,26 +87,34 @@ namespace Game10003
                 GameTime++;
             }
             TotalFrames++;
+            
             /// When the player moves, show that they moved
             PlayerPos += PlayerVel;
+            
             /// Keyboard Inputs
             if (Input.IsKeyboardKeyPressed(KeyboardInput.W) || Input.IsKeyboardKeyDown(KeyboardInput.W)) { UpPressed = true; }
             else { UpPressed = false; }
+           
             if (Input.IsKeyboardKeyPressed(KeyboardInput.A) || Input.IsKeyboardKeyDown(KeyboardInput.A)) { LeftPressed = true; }
             else { LeftPressed = false; }
+           
             if (Input.IsKeyboardKeyPressed(KeyboardInput.S) || Input.IsKeyboardKeyDown(KeyboardInput.S)) { DownPressed = true; }
             else { DownPressed = false; }
+           
             if (Input.IsKeyboardKeyPressed(KeyboardInput.D) || Input.IsKeyboardKeyDown(KeyboardInput.D)) { RightPressed = true; }
             else { RightPressed = false; }
             if (CollidingWithLadder1 == true) { CollidingWithLadder = true; } else { CollidingWithLadder = false; }
+            
             if (LeftPressed == true)
             {
                 PlayerVel.X = -5;
             }
+           
             if (RightPressed == true)
             {
                 PlayerVel.X = 5;
             }
+           
             /// Ladder mechanics and jumping
             if (DownPressed == true && CollidingWithLadder == true && LadderState == true)
             {
@@ -115,29 +127,35 @@ namespace Game10003
                 IsStanding = false;
             }
             else if (UpPressed == true && CollidingWithLadder == true && LadderState == true) { PlayerVel.Y = -3; IsStanding = false; }
+            
             /// Overridden button fixes
             if (LeftPressed == false && RightPressed == false) { PlayerVel.X = 0; }
             if (LeftPressed == true && RightPressed == true) { PlayerVel.X = 0; }
             if (UpPressed == false && DownPressed == false && CollidingWithLadder == true) { PlayerVel.Y = 0; }
             if (UpPressed == true && DownPressed == true && CollidingWithLadder == true) { PlayerVel.Y = 0; }
+            
             /// Constant downward velocity
             if (IsStanding == true)
             {
                 PlayerVel.Y = 0;
             }
             else if (CollidingWithLadder == false) { PlayerVel.Y = PlayerVel.Y + (ForceofGravity); }
+            
             /// Collsion Detection
             if ((PlayerPos.Y + PlayerScale.Y) >= 900 - GroundScale) { PlayerPos.Y = 900 - (GroundScale + PlayerScale.Y); IsStanding = true; }
             if (Plat1Passed == false)
+            
             {
                 /// If the player is above the first ladder, disable its collision
                 Ladder1Detect(Ladder1Pos, Ladder1Scale, PlayerPos, PlayerScale);
             }
+            
             Platform1Detect(Plat1Pos, Plat1Scale, PlayerPos, PlayerScale);
             if (CollidingWithLadder1 == true)
             {
                 Text.Color = Color.Red;
                 Text.Draw("LADDER!", 10, 10);
+                
                 if (AtLadder1Bottom == true)
                 {
                     LadderState = true;
@@ -147,10 +165,13 @@ namespace Game10003
                     IsStanding = true;
                     LadderState = false;
                 }
+               
                 /// If you are on a ladder and not at the top or bottom, you can't move left or right
                 else { PlayerVel.X = 0; }
             }
+            
             else { Text.Color = Color.Red; Text.Draw("NO LADDER?", 10, 10); }
+            
             /// Platform Collision
             if (CollidingWithPlat1 == true)
             {
@@ -175,9 +196,11 @@ namespace Game10003
                     IsStanding = false;
                 }
             }
+
             /// Ladders become intangible after climbing
             if ((PlayerPos.Y + PlayerScale.Y) < Ladder1Pos.Y && Plat1Passed == false) { Plat1Passed = true; Plat1Pos = new Vector2(Ladder1Pos.X, Plat1Pos.Y); Plat1Scale = new Vector2((Plat1Scale.X + Ladder1Scale.X), Plat1Scale.Y); }
             if ((PlayerPos.Y + PlayerScale.Y) > Ladder1Pos.Y && Plat1Passed == true) { Plat1Passed = false; Plat1Pos = new Vector2((Ladder1Pos.X + Ladder1Scale.X), Plat1Pos.Y); Plat1Scale = new Vector2((Plat1Scale.X - Ladder1Scale.X), Plat1Scale.Y); }
+            
             /// :::::::::: BELOW THIS POINT IS DANIEL'S CODE ::::::::::
             collision.barrelLastPosition = collision.barrelLocation;
             shape_Creation.playerLastPosition = shape_Creation.playerPosition;
@@ -206,18 +229,21 @@ namespace Game10003
 
             shape_Creation.barrelMovement();
         }
+        
         public void DrawPlayer()
         {
             /// Just collision, really. In fact, all of these public voids should be made clear for the final project.
             Draw.FillColor = Color.Black;
             Draw.Rectangle(PlayerPos.X, PlayerPos.Y, 18, 40);
         }
+       
         public void DrawGround(float Scale)
         {
             /// It's just the floor
             Draw.FillColor = Color.Black;
             Draw.Rectangle(0, (900 - Scale), 600, Scale);
         }
+        
         public void Ladder1Detect(Vector2 LadderPos, Vector2 LadderScale, Vector2 PlayerPos, Vector2 PlayerSize)
         {
             /// This does everything you need to know about the first ladder
@@ -226,19 +252,23 @@ namespace Game10003
                 CollidingWithLadder1 = true;
             }
             else { CollidingWithLadder1 = false; }
+            
             /// Checks if the player is at the bottom of the ladder
             if (CollidingWithLadder1 == true && (PlayerPos.Y + PlayerScale.Y) == (Ladder1Pos.Y + Ladder1Scale.Y)) { AtLadder1Bottom = true; }
             else { AtLadder1Bottom = false; }
+            
             /// Checks if the player is at the top of the ladder (though it's kinda useless code)
             if (CollidingWithLadder1 == true && (PlayerPos.Y + PlayerScale.Y) == Ladder1Pos.Y) { AtLadder1Top = true; }
             else { AtLadder1Top = false; }
         }
+        
         public void DrawLadder1(Vector2 Pos, Vector2 Scale)
         {
             /// Self explanatory
             Draw.FillColor = Color.Blue;
             Draw.Rectangle(Pos, Scale);
         }
+       
         public void Platform1Detect(Vector2 PlatPos, Vector2 PlatScale, Vector2 PlayerPos, Vector2 PlayerSize)
         {
             /// Same thing as the ladders. Just runs to see if the player in on/in the platform.
@@ -248,6 +278,7 @@ namespace Game10003
             }
             else { CollidingWithPlat1 = false; }
         }
+        
         public void DrawPlatform1(Vector2 Pos, Vector2 Scale)
         {
             /// I have no idea how raph thinks we can make all of this happen so quickly
