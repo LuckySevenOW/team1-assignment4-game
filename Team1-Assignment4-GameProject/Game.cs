@@ -16,7 +16,7 @@ namespace Game10003
         float GroundScale;
         float ForceofGravity = 1;
         int FrameRate = 60;
-        Vector2 PlayerPos = new Vector2(290, 682);
+        public Vector2 PlayerPos = new Vector2(290, 682);
         Vector2 PlayerScale = new Vector2(18, 40);
         Vector2 PlayerVel = new Vector2(0, 0);
         bool UpPressed;
@@ -46,7 +46,11 @@ namespace Game10003
         float GameTime = 0;
         Score score;
         bool BarrelAvoided = false;
-       
+
+        //Jake's Variables
+        GameGraphics gameGraphics = new GameGraphics();
+        public GameGraphics daGraphics;
+
         /// :::::::::: DANIEL'S VARIABLES ::::::::::
         Shape_Creation shape_Creation = new Shape_Creation();
         Collision collision = new Collision();
@@ -68,6 +72,10 @@ namespace Game10003
         public void Update()
         {
             Window.ClearBackground(Color.OffWhite);
+
+            //Added by Jake
+            daGraphics.DrawBackground();
+
             /// The objects are drawn to the canvas
             DrawPlatform1(Plat1Pos, Plat1Scale);
             DrawLadder1(Ladder1Pos, Ladder1Scale);
@@ -235,6 +243,7 @@ namespace Game10003
             /// Just collision, really. In fact, all of these public voids should be made clear for the final project.
             Draw.FillColor = Color.Black;
             Draw.Rectangle(PlayerPos.X, PlayerPos.Y, 18, 40);
+            Graphics.Draw(daGraphics.texturePlayerRunRight, PlayerPos.X, PlayerPos.Y);
         }
        
         public void DrawGround(float Scale)
