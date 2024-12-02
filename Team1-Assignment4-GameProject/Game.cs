@@ -182,57 +182,48 @@ namespace Game10003
             collision.barrelLastPosition = collision.barrelLocation;
             shape_Creation.playerLastPosition = shape_Creation.playerPosition;
 
+            // Middle Platform - 285 x 28
+            shape_Creation.platforms(Window.Width / 2 - 143, 850, 285, 28);
+            collision.platformBarrelCollision(Window.Width / 2 - 143, 850, 285);
 
-            shape_Creation.platforms(100, 950, 400, 20);
-            collision.platformBarrelCollision(100, 950, 400);
+            // Small Platforms - 216 x 28
+            shape_Creation.platforms(30, 750, 216, 28);
+            collision.platformBarrelCollision(30, 750, 216);
+            shape_Creation.platforms(Window.Width - 246, 750, 216, 28);
+            collision.platformBarrelCollision(Window.Width - 246, 750, 216);
 
-            shape_Creation.platforms(0, 850, 100, 25);
-            collision.platformBarrelCollision(0, 850, 100);
-            shape_Creation.platforms(Window.Width - 100, 850, 100, 25);
-            collision.platformBarrelCollision(Window.Width - 100, 850, 100);
+            //Small Platforms - 216 x 28
+            shape_Creation.platforms(30, 650, 216, 28);
+            collision.platformBarrelCollision(30, 650, 216);
+            shape_Creation.platforms(Window.Width - 246, 650, 216, 28);
+            collision.platformBarrelCollision(Window.Width - 246, 650, 216);
 
-            shape_Creation.platforms(400, 750, 75, 25);
-            collision.platformBarrelCollision(400, 750, 75);
-            shape_Creation.platforms(0, 750, 50, 25);
-            collision.platformBarrelCollision(0, 750, 50);
+            //Middle Platform - 285 x 28
+            shape_Creation.platforms(Window.Width / 2 - 143, 550, 285, 28);
+            collision.platformBarrelCollision(Window.Width / 2 - 143, 550, 285);
 
-            shape_Creation.platforms(90, 650, 125, 25);
-            collision.platformBarrelCollision(100, 650, 125);
-            shape_Creation.platforms(325, 650, 75, 25);
-            collision.platformBarrelCollision(325, 650, 75);
+            //Small Platforms - 216 x 28
+            shape_Creation.platforms(30, 450, 216, 28);
+            collision.platformBarrelCollision(30, 450, 216);
+            shape_Creation.platforms(Window.Width - 246, 450, 216, 28);
+            collision.platformBarrelCollision(Window.Width - 246, 450, 216);
 
-            shape_Creation.platforms(175, 550, 150, 20);
-            collision.platformBarrelCollision(175, 550, 150);
+            //Small Platforms - 216 x 28
+            shape_Creation.platforms(30, 350, 216, 28);
+            collision.platformBarrelCollision(30, 350, 216);
+            shape_Creation.platforms(Window.Width - 246, 350, 216, 28);
+            collision.platformBarrelCollision(Window.Width - 246, 350, 216);
 
-            shape_Creation.platforms(75, 450, 100, 20);
-            collision.platformBarrelCollision(75, 450, 100);
-            shape_Creation.platforms(300, 450, 125, 20);
-            collision.platformBarrelCollision(300, 450, 125);
+            //Middle Platform - 285 x 28
+            shape_Creation.platforms(Window.Width / 2 - 143, 250, 285, 28);
+            collision.platformBarrelCollision(Window.Width / 2 - 143, 250, 285);
 
-            shape_Creation.platforms(0, 350, 75, 20);
-            collision.platformBarrelCollision(0, 350, 75);
-            shape_Creation.platforms(400, 350, 100, 20);
-            collision.platformBarrelCollision(400, 350, 100);
 
-            shape_Creation.platforms(100, 250, 100, 20);
-            collision.platformBarrelCollision(100, 250, 100);
-            shape_Creation.platforms(285, 250, 100, 20);
-            collision.platformBarrelCollision(285, 250, 100);
-            shape_Creation.platforms(500, 250, 100, 20);
-            collision.platformBarrelCollision(500, 250, 100);
-
-            shape_Creation.platforms(50, 150, 100, 20);
-            collision.platformBarrelCollision(50, 150, 100);
-            shape_Creation.platforms(450, 150, 100, 20);
-            collision.platformBarrelCollision(450, 150, 100);
-
-            shape_Creation.platforms(0, 50, 50, 20);
-            collision.platformBarrelCollision(0, 50, 50);
-            shape_Creation.platforms(150, 60, 300, 20);
-            collision.platformBarrelCollision(150, 60, 300);
-            shape_Creation.platforms(Window.Width - 50, 50, 50, 20);
-            collision.platformBarrelCollision(Window.Width - 50, 50, 50);
-
+            //Small Platforms - 216 x 28
+            shape_Creation.platforms(30, 150, 216, 28);
+            collision.platformBarrelCollision(30, 150, 216);
+            shape_Creation.platforms(Window.Width - 246, 150, 216, 28);
+            collision.platformBarrelCollision(Window.Width - 246, 150, 216);
 
             shape_Creation.barrel();
             shape_Creation.player();
