@@ -17,7 +17,7 @@ namespace Game10003
         float ForceofGravity = 1;
         int FrameRate = 60;
         Vector2 PlayerPos = new Vector2(290, 682);
-        Vector2 PlayerScale = new Vector2(18, 40);
+        Vector2 PlayerScale = new Vector2(90, 100);
         Vector2 PlayerVel = new Vector2(0, 0);
         bool UpPressed;
         bool LeftPressed;
@@ -33,10 +33,10 @@ namespace Game10003
         bool CollidingWithLadder1 = false;
         bool CollidingWithPlat1 = false;
         // Collision and shit
-        Vector2 Ladder1Pos = new Vector2(240, 600);
-        Vector2 Ladder1Scale = new Vector2(30, 100);
-        Vector2 Plat1Pos = new Vector2(270, 600);
-        Vector2 Plat1Scale = new Vector2(200, 20);
+        Vector2 Ladder1Pos = new Vector2(180, 500);
+        Vector2 Ladder1Scale = new Vector2(90, 200);
+        Vector2 Plat1Pos = new Vector2(270, 500);
+        Vector2 Plat1Scale = new Vector2(200, 30);
         // Score Variables
         float GameScore = 0;
         float TotalFrames = 0;
@@ -106,15 +106,15 @@ namespace Game10003
             /// Ladder mechanics and jumping
             if (DownPressed == true && CollidingWithLadder == true && LadderState == true)
             {
-                PlayerVel.Y = 3;
+                PlayerVel.Y = 4;
             }
             if (UpPressed == true && CollidingWithLadder == false && IsStanding == true)
             {
                 PlayerPos.Y -= 1;
-                PlayerVel.Y = -9;
+                PlayerVel.Y = -13;
                 IsStanding = false;
             }
-            else if (UpPressed == true && CollidingWithLadder == true && LadderState == true) { PlayerVel.Y = -3; IsStanding = false; }
+            else if (UpPressed == true && CollidingWithLadder == true && LadderState == true) { PlayerVel.Y = -4; IsStanding = false; }
             /// Overridden button fixes
             if (LeftPressed == false && RightPressed == false) { PlayerVel.X = 0; }
             if (LeftPressed == true && RightPressed == true) { PlayerVel.X = 0; }
@@ -127,7 +127,6 @@ namespace Game10003
             }
             else if (CollidingWithLadder == false) { PlayerVel.Y = PlayerVel.Y + (ForceofGravity); }
             /// Collsion Detection
-            if ((PlayerPos.Y + PlayerScale.Y) >= 900 - GroundScale) { PlayerPos.Y = 900 - (GroundScale + PlayerScale.Y); IsStanding = true; }
             if (Plat1Passed == false)
             {
                 /// If the player is above the first ladder, disable its collision
@@ -150,9 +149,10 @@ namespace Game10003
                 /// If you are on a ladder and not at the top or bottom, you can't move left or right
                 else { PlayerVel.X = 0; }
             }
-            else { Text.Color = Color.Red; Text.Draw("NO LADDER?", 10, 10); }
+            else if (CollidingWithLadder1 == false) { Text.Color = Color.Red; Text.Draw("NO LADDER?", 10, 10); }
             /// Platform Collision
-            if (CollidingWithPlat1 == true)
+            if ((PlayerPos.Y + PlayerScale.Y) >= 900 - GroundScale) { PlayerPos.Y = 900 - (GroundScale + PlayerScale.Y); IsStanding = true; }
+            else if (CollidingWithPlat1 == true)
             {
                 if (PlayerPos.X < Plat1Pos.X && PlayerPos.Y < Plat1Pos.Y && (PlayerPos.Y + PlayerScale.Y) > (Plat1Pos.Y + Plat1Scale.Y))
                 {
@@ -175,6 +175,7 @@ namespace Game10003
                     IsStanding = false;
                 }
             }
+            else { IsStanding = false; }
             /// Ladders become intangible after climbing
             if ((PlayerPos.Y + PlayerScale.Y) < Ladder1Pos.Y && Plat1Passed == false) { Plat1Passed = true; Plat1Pos = new Vector2(Ladder1Pos.X, Plat1Pos.Y); Plat1Scale = new Vector2((Plat1Scale.X + Ladder1Scale.X), Plat1Scale.Y); }
             if ((PlayerPos.Y + PlayerScale.Y) > Ladder1Pos.Y && Plat1Passed == true) { Plat1Passed = false; Plat1Pos = new Vector2((Ladder1Pos.X + Ladder1Scale.X), Plat1Pos.Y); Plat1Scale = new Vector2((Plat1Scale.X - Ladder1Scale.X), Plat1Scale.Y); }
@@ -237,7 +238,7 @@ namespace Game10003
         {
             /// Just collision, really. In fact, all of these public voids should be made clear for the final project.
             Draw.FillColor = Color.Black;
-            Draw.Rectangle(PlayerPos.X, PlayerPos.Y, 18, 40);
+            Draw.Rectangle(PlayerPos.X, PlayerPos.Y, PlayerScale.X, PlayerScale.Y);
         }
         public void DrawGround(float Scale)
         {
