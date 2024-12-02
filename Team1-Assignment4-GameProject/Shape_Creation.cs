@@ -27,13 +27,15 @@ namespace Team1_Assignment4_GameProject
 
         public void platforms(float rectangleLocationX, float rectangleLocationY, float rectangleSizeX, float rectangleSizeY)
         {
-            Draw.FillColor = Color.Green;
+            Draw.FillColor = Color.Clear;
+            Draw.LineColor = Color.Clear;
             Draw.Rectangle(rectangleLocationX, rectangleLocationY, rectangleSizeX, rectangleSizeY);
         }
 
         public void barrel()
         {
-            Draw.FillColor = Color.Red;
+            Draw.FillColor = Color.Clear;
+            Draw.LineColor = Color.Clear;
             Draw.Circle(collision.barrelLocation.X, collision.barrelLocation.Y, collision.barrelRadius);
             gamegraphics.DrawBarrel(collision.barrelLocation);
         }

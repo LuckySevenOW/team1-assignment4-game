@@ -315,8 +315,10 @@ namespace Game10003
         public void DrawPlatform1(Vector2 Pos, Vector2 Scale)
         {
             /// I have no idea how raph thinks we can make all of this happen so quickly
-            Draw.FillColor = Color.Red;
+            Draw.FillColor = Color.Clear;
+            Draw.LineColor = Color.Clear;
             Draw.Rectangle(Pos, Scale);
+            gameGraphics.DrawPlatforms();
         }
     }
 }
