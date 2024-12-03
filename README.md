@@ -1,27 +1,27 @@
-The repository for the GAME 10003 Assignment #4, the Collaborative 2D Game Project.
+# team1-assignment4-game
+The repository for the GAME 10003 Assignment #4, the Collaborative 2D Game Project. 
 
-Game Concept:
+This game is a 2D platformer in the vein of the original Donkey Kong, Where your goal is to reach the top of a series of platforms, surviving as long as you can while avoiding barrels!
 
-This game will be a 2D platformer in the vein of the original Donkey Kong, with the player being tasked with reaching the top of a series of platforms while avoiding barrels and other obstacles that roll down.
+Controls:
 
-Ideas:
+W - Jump & Climb Ladders
 
-    Endless Runner?
+A - Left
 
-Tasks:
+S - Drop Down
 
-    Sprites
-    Background
-    Player Movement & Collision
-    Obstacles & Their Collision
-    UI Elements (Functionality)
-    Scoring
-    Win State/Fail State
+D - Right
 
-Roles & Tasks:
+Team Members:
 
-    Jake: Background and Character Art & Implementation
-    Daniel (Scyth3Lucif3r): Platform, Ball, & Player Collision
-    Nick: Player and Obstacle Movement
-    Zoe: UI and UI Implementation
-    Nate: Scoring, Game Over Screen, & Ladder Collision
+- Jake: Background Art, Character & Barrel Sprites, Implementation
+
+-  Daniel (Scyth3Lucif3r): Platform, Ball & Player Collision
+
+- Nick: Player & Obstacle Movement
+
+- Zoe: UI and UI Implementation
+
+- Nate: Score, Timer & Ladder Collision
+
