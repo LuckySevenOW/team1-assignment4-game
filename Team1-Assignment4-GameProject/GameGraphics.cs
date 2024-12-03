@@ -116,6 +116,8 @@ public class GameGraphics
     public void DrawBarrel(Vector2 barrelLocation)
     {
         //This loads the barrel texture and then draws it at barrelLocation, -15 in order to make it line up.
+        //I had wanted to have it change texture for each barrel, but I guess we didn't really have enough time to make it spawn different barrels that can then be
+        //manipulated separately. 
         Texture2D textureBarrelRad = Graphics.LoadTexture("../../../Assets/BarrelRad.png");
         Graphics.Draw(textureBarrelRad, barrelLocation.X - 15, barrelLocation.Y - 15);
     }
