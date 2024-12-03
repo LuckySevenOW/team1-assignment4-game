@@ -123,7 +123,7 @@ public class GameGraphics
         //manipulated separately. 
         Texture2D textureBarrelRad = Graphics.LoadTexture("../../../Assets/BarrelRad.png");
         Graphics.Draw(textureBarrelRad, barrelLocation.X - 15, barrelLocation.Y - 15);
-    }
+    } 
 
     public void DrawLifeIcon(Vector2 iconLocation)
     {
