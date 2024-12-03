@@ -46,6 +46,11 @@ namespace Game10003
         Score score;
         bool BarrelAvoided = false;
 
+        // UI Variables
+        Vector2 iconLocation1 = new Vector2(50, 50);
+        Vector2 iconLocation2 = new Vector2(100, 50);
+        Vector2 iconLocation3 = new Vector2(150, 50);
+
         //Jake's Variables
         GameGraphics gameGraphics = new GameGraphics();
 
@@ -268,6 +273,9 @@ namespace Game10003
             Draw.FillColor = Color.Clear;
             Draw.Rectangle(PlayerPos.X, PlayerPos.Y, PlayerScale.X, PlayerScale.Y);
             gameGraphics.DrawPlayerSprite(PlayerPos);
+            gameGraphics.DrawLifeIcon(iconLocation1);
+            gameGraphics.DrawLifeIcon(iconLocation2);
+            gameGraphics.DrawLifeIcon(iconLocation3);
         }
        
         public void DrawGround(float Scale)

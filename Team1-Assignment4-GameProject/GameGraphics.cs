@@ -16,6 +16,9 @@ public class GameGraphics
     public Game game;
     public Collision collision;
     public int playerDirection = 0;
+    public Vector2 lifeicon1;
+    public Vector2 lifeicon2;
+    public Vector2 lifeicon3;
 
     public void DrawPlayerSprite(Vector2 PlayerPos)
     {
@@ -120,5 +123,18 @@ public class GameGraphics
         //manipulated separately. 
         Texture2D textureBarrelRad = Graphics.LoadTexture("../../../Assets/BarrelRad.png");
         Graphics.Draw(textureBarrelRad, barrelLocation.X - 15, barrelLocation.Y - 15);
+    }
+
+    public void DrawLifeIcon(Vector2 iconLocation)
+    {
+        //This will draw in the player life icon into the game. I did this three times because I don't know any other way to do this...
+        Texture2D lifeicon1 = Graphics.LoadTexture("../../../Assets/davelifeiconcompleted.png");
+        Texture2D lifeicon2 = Graphics.LoadTexture("../../../Assets/davelifeiconcompleted.png");
+        Texture2D lifeicon3 = Graphics.LoadTexture("../../../Assets/davelifeiconcompleted.png");
+
+        //Drawing Dave's Life Icons into the game.
+        Graphics.Draw(lifeicon1, iconLocation.X + 50, iconLocation.Y + 50);
+        Graphics.Draw(lifeicon2, iconLocation.X + 75, iconLocation.Y + 50);
+        Graphics.Draw(lifeicon3, iconLocation.X + 100, iconLocation.Y + 50);
     }
 }
