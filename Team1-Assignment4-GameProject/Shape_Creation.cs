@@ -60,7 +60,7 @@ namespace Team1_Assignment4_GameProject
 
         public void player()
         {
-            Draw.FillColor = Color.Blue;
+            Draw.FillColor = Color.Clear;
             Draw.Rectangle(playerPosition.X, playerPosition.Y, playerSize.X, playerSize.Y);
         }
     }

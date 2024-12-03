@@ -35,7 +35,7 @@ namespace Game10003
         bool CollidingWithPlat1 = false;
        
         // Collision and shit
-        Vector2 Ladder1Pos = new Vector2(240, 600);
+        public Vector2 Ladder1Pos = new Vector2(240, 600);
         Vector2 Ladder1Scale = new Vector2(90, 200);
         Vector2 Plat1Pos = new Vector2(270, 500);
         Vector2 Plat1Scale = new Vector2(200, 30);
@@ -265,7 +265,7 @@ namespace Game10003
         public void DrawPlayer()
         {
             /// Just collision, really. In fact, all of these public voids should be made clear for the final project.
-            Draw.FillColor = Color.Black;
+            Draw.FillColor = Color.Clear;
             Draw.Rectangle(PlayerPos.X, PlayerPos.Y, PlayerScale.X, PlayerScale.Y);
             gameGraphics.DrawPlayerSprite(PlayerPos);
         }
@@ -298,8 +298,10 @@ namespace Game10003
         public void DrawLadder1(Vector2 Pos, Vector2 Scale)
         {
             /// Self explanatory
-            Draw.FillColor = Color.Blue;
+            Draw.FillColor = Color.Clear;
+            Draw.LineColor = Color.Clear;
             Draw.Rectangle(Pos, Scale);
+            gameGraphics.DrawLadder(Pos);
         }
        
         public void Platform1Detect(Vector2 PlatPos, Vector2 PlatScale, Vector2 PlayerPos, Vector2 PlayerSize)

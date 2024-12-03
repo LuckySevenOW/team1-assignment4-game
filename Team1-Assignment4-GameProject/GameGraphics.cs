@@ -12,25 +12,21 @@ public class GameGraphics
 
     }
 
-    //Player Textures
-    //Graphics.Draw(texturePlayerJump, position);
-
-    //Barrel Textures
-    //public Texture2D textureBarrelOil = Graphics.LoadTexture("../../../Assets/BarrelOil.png");
-    //public Texture2D textureBarrelBio = Graphics.LoadTexture("../../../Assets/BarrelBio.png");
-
     Vector2 backgroundPosition = new Vector2(0, 0);
     public Game game;
     public Collision collision;
+    public int playerDirection = 0;
 
     public void DrawPlayerSprite(Vector2 PlayerPos)
     {
+        //Loads the player sprites and then draws them depending on what direction you are moving. If I had the time, I would have added some way to make it only draw one
+        //direction at a time if I had time, because as it stands, it will draw the sprite for both directions at once if you press both A and D at the same time. 
+
         Texture2D texturePlayerRunRight = Graphics.LoadTexture("../../../Assets/PlayerRunningRight1.png");
         Texture2D texturePlayerRunLeft = Graphics.LoadTexture("../../../Assets/PlayerRunningLeft1.png");
         Texture2D texturePlayerIdle = Graphics.LoadTexture("../../../Assets/PlayerStandingRight.png");
         Texture2D texturePlayerClimb1 = Graphics.LoadTexture("../../../Assets/PlayerClimbing1.png");
         Texture2D texturePlayerClimb2 = Graphics.LoadTexture("../../../Assets/PlayerClimbing2.png");
-        Texture2D texturePlayerJump = Graphics.LoadTexture("../../../Assets/PlayerStandingLeft.png");
 
         if (Input.IsKeyboardKeyPressed(KeyboardInput.W) || Input.IsKeyboardKeyDown(KeyboardInput.W))
         {
@@ -56,6 +52,7 @@ public class GameGraphics
 
     public void DrawPlatforms()
     {
+        //Loads the platform textures and then draws them. 
         Texture2D texturePlatformSmallLeft = Graphics.LoadTexture("../../../Assets/PlatformSmallLeft.png");
         Texture2D texturePlatformSmallRight = Graphics.LoadTexture("../../../Assets/PlatformSmallRight.png");
         Texture2D texturePlatformLargeLeft = Graphics.LoadTexture("../../../Assets/PlatformLargeLeft.png");
@@ -97,15 +94,28 @@ public class GameGraphics
 
     public void DrawBackground()
     {
+        //Loads and draws background texture
         Texture2D textureBackground = Graphics.LoadTexture("../../../Assets/Background.png");
         Graphics.Draw(textureBackground, backgroundPosition);
 
+        //Draws the pole textures in front of the background. I did this so that way we could have the background and foreground moving separately, creating an illusion of movement
+        //but I'm not sure if we'll get around to that.
         Texture2D texturePoles = Graphics.LoadTexture("../../../Assets/PlatformSupports.png");
         Graphics.Draw(texturePoles, backgroundPosition);
     }
 
+    public void DrawLadder(Vector2 Ladder1Pos)
+    {
+        //Loads the texture and then draws the ladder. There are two versions of the ladder, but only one is used. 
+        Texture2D textureLadder = Graphics.LoadTexture("../../../Assets/LadderShort.png");
+
+        //Drawing Ladder 1
+        Graphics.Draw(textureLadder, Ladder1Pos.X, Ladder1Pos.Y + 50);
+    }
+
     public void DrawBarrel(Vector2 barrelLocation)
     {
+        //This loads the barrel texture and then draws it at barrelLocation, -15 in order to make it line up.
         Texture2D textureBarrelRad = Graphics.LoadTexture("../../../Assets/BarrelRad.png");
         Graphics.Draw(textureBarrelRad, barrelLocation.X - 15, barrelLocation.Y - 15);
     }
